@@ -1,450 +1,93 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>RBLX Forge - Roblox Tools</title>
 
-<style>
+<title>RBLX Forge V3</title>
 
-*{
-box-sizing:border-box;
-}
-
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#080b18;
-color:white;
-text-align:center;
-overflow-x:hidden;
-}
-
-/* Animated background */
-body::before{
-content:"";
-position:fixed;
-inset:0;
-background:
-radial-gradient(circle,#00d9ff55 2px,transparent 3px);
-background-size:70px 70px;
-animation:bgmove 15s linear infinite;
-z-index:-1;
-}
-
-@keyframes bgmove{
-from{
-background-position:0 0;
-}
-to{
-background-position:300px 300px;
-}
-}
-
-
-header{
-padding:40px;
-background:#111827dd;
-}
-
-
-h1{
-font-size:45px;
-color:#00d9ff;
-text-shadow:0 0 20px #00d9ff;
-}
-
-
-.card{
-
-background:#1f2937dd;
-width:360px;
-margin:25px auto;
-padding:25px;
-border-radius:20px;
-box-shadow:0 0 25px black;
-
-animation:show .7s;
-
-}
-
-
-@keyframes show{
-
-from{
-opacity:0;
-transform:translateY(30px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-
-button{
-
-background:#00d9ff;
-color:white;
-border:none;
-padding:12px 20px;
-border-radius:10px;
-cursor:pointer;
-font-size:16px;
-margin:5px;
-
-}
-
-
-button:hover{
-
-transform:scale(1.1);
-
-}
-
-
-.result{
-
-margin-top:15px;
-background:#080b18;
-padding:12px;
-border-radius:10px;
-word-break:break-all;
-
-}
-
-
-footer{
-
-padding:30px;
-color:#aaa;
-
-}
-
-
-select{
-
-padding:10px;
-border-radius:8px;
-
-}
-
-</style>
+<link rel="stylesheet" href="css/style.css">
 
 </head>
 
-
 <body>
 
+<nav>
+<h2>🔥 RBLX Forge</h2>
 
-<header>
+<div>
+<a href="index.html">Home</a>
+<a href="tools.html">Tools</a>
+<a href="builder.html">AI Builder</a>
+<a href="tips.html">Tips</a>
+<a href="about.html">About</a>
+</div>
 
-<h1>🔥 RBLX Forge 🔥</h1>
+</nav>
 
-<p>The ultimate Roblox creator toolkit</p>
 
-</header>
+<section class="hero">
 
+<h1>🔥 RBLX Forge</h1>
+
+<h2>The Ultimate Roblox Creator Toolkit</h2>
+
+<p>
+Create ideas, build games, and improve your Roblox skills.
+</p>
+
+<a class="button" href="tools.html">
+Start Building 🚀
+</a>
+
+</section>
+
+
+
+<section class="cards">
 
 
 <div class="card">
-
-<h2>🎮 Username Generator</h2>
-
-<button onclick="generateName()">Generate</button>
-
-<div class="result" id="name">-</div>
-
-<button onclick="copyText('name')">
-📋 Copy
-</button>
-
+<h2>🎮 Tools</h2>
+<p>
+Generators and creator tools for Roblox.
+</p>
 </div>
-
-
 
 
 <div class="card">
-
-<h2>🔐 Password Generator</h2>
-
-<button onclick="generatePass()">Generate</button>
-
-<div class="result" id="pass">-</div>
-
-<button onclick="copyText('pass')">
-📋 Copy
-</button>
-
+<h2>🤖 AI Builder</h2>
+<p>
+Generate game concepts and development ideas.
+</p>
 </div>
-
-
 
 
 <div class="card">
-
-<h2>💡 Game Idea Generator</h2>
-
-<button onclick="idea()">Generate Idea</button>
-
-<div class="result" id="game">-</div>
-
-<button onclick="copyText('game')">
-📋 Copy
-</button>
-
+<h2>🏆 Pro Tips</h2>
+<p>
+Improve in Roblox games and learn strategies.
+</p>
 </div>
-
-
 
 
 <div class="card">
-
-<h2>🎲 Roblox Challenge</h2>
-
-<button onclick="challenge()">Generate Challenge</button>
-
-<div class="result" id="challenge">-</div>
-
+<h2>🧑‍💻 Creator Zone</h2>
+<p>
+Resources for Roblox Studio creators.
+</p>
 </div>
 
 
-
-
-<div class="card">
-
-<h2>🏆 Roblox Pro Tips</h2>
-
-<button onclick="tip()">Get Tip</button>
-
-<div class="result" id="tip">-</div>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h2>🏗️ Roblox Game Builder</h2>
-
-<select id="gameType">
-
-<option>Simulator</option>
-<option>Horror</option>
-<option>Obby</option>
-<option>Fighting</option>
-<option>Racing</option>
-<option>Tycoon</option>
-
-</select>
-
-<br><br>
-
-<button onclick="buildGame()">
-Create Game Idea
-</button>
-
-<div class="result" id="gameIdea">
--
-</div>
-
-</div>
-
+</section>
 
 
 
 <footer>
 
-🔥 RBLX Forge | Made for Roblox creators
+<p>
+RBLX Forge is a fan-made Roblox creator toolkit.
+</p>
 
 </footer>
-
-
-
-
-<script>
-
-
-let names=[
-"Shadow","Nova","Void",
-"Pixel","Cyber","Apex",
-"Storm","Legend","Ghost"
-];
-
-
-let endings=[
-"Wolf","Titan","Dragon",
-"Raptor","King","Blade"
-];
-
-
-
-function generateName(){
-
-let x=
-names[Math.floor(Math.random()*names.length)]
-+
-endings[Math.floor(Math.random()*endings.length)]
-+
-Math.floor(Math.random()*9999);
-
-
-document.getElementById("name").innerHTML=x;
-
-}
-
-
-
-function generatePass(){
-
-let chars=
-"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
-
-
-let p="";
-
-
-for(let i=0;i<16;i++){
-
-p+=chars[Math.floor(Math.random()*chars.length)];
-
-}
-
-
-document.getElementById("pass").innerHTML=p;
-
-}
-
-
-
-
-function idea(){
-
-let ideas=[
-
-"Escape The Haunted Roblox City",
-"Build A Mega Simulator",
-"Roblox Battle Arena",
-"Extreme Parkour Obby",
-"Pet Collection Game"
-
-];
-
-
-document.getElementById("game").innerHTML=
-ideas[Math.floor(Math.random()*ideas.length)];
-
-}
-
-
-
-
-function challenge(){
-
-let list=[
-
-"Win without jumping",
-"Create a new avatar style",
-"Beat an obby challenge",
-"Make a funny character",
-"Try a new Roblox game"
-
-];
-
-
-document.getElementById("challenge").innerHTML=
-list[Math.floor(Math.random()*list.length)];
-
-}
-
-
-
-
-function tip(){
-
-let tips=[
-
-"🎯 RIVALS: Keep moving while fighting!",
-"⚽ Touch Football: Practice timing your shots.",
-"🗡️ MM2: Watch player movement carefully.",
-"🏀 Basketball: Create space before shooting.",
-"🧠 Learn the map to improve faster."
-
-];
-
-
-document.getElementById("tip").innerHTML=
-tips[Math.floor(Math.random()*tips.length)];
-
-}
-
-
-
-
-function buildGame(){
-
-let type=document.getElementById("gameType").value;
-
-
-let ideas={
-
-Simulator:[
-"Pet Evolution Simulator",
-"Space Mining Simulator"
-],
-
-Horror:[
-"Haunted School Escape",
-"Dark Forest Mystery"
-],
-
-Obby:[
-"Impossible Tower Obby",
-"Speed Run Challenge"
-],
-
-Fighting:[
-"Anime Battle Arena",
-"Element Power Fighters"
-],
-
-Racing:[
-"Super Car Racing",
-"Rocket Bike Race"
-],
-
-Tycoon:[
-"Theme Park Empire",
-"Mega City Tycoon"
-]
-
-};
-
-
-let result=ideas[type][Math.floor(Math.random()*ideas[type].length)];
-
-
-document.getElementById("gameIdea").innerHTML=
-"🎮 "+result;
-
-}
-
-
-
-
-function copyText(id){
-
-let text=document.getElementById(id).innerText;
-
-navigator.clipboard.writeText(text);
-
-alert("Copied! 🔥");
-
-}
-
-
-</script>
 
 
 </body>
