@@ -267,3 +267,55 @@ background:#111827;
 color:white;
 
 }
+/* 🌌 RBLX Forge V3 Animated Background */
+
+body{
+    background: linear-gradient(-45deg, #050816, #111827, #0f172a, #1e1b4b);
+    background-size: 400% 400%;
+    animation: backgroundMove 12s ease infinite;
+}
+
+
+@keyframes backgroundMove{
+
+0%{
+    background-position:0% 50%;
+}
+
+50%{
+    background-position:100% 50%;
+}
+
+100%{
+    background-position:0% 50%;
+}
+
+}
+
+
+.hero h1{
+    animation: floatTitle 3s ease-in-out infinite;
+}
+
+
+@keyframes floatTitle{
+
+0%,100%{
+    transform:translateY(0);
+}
+
+50%{
+    transform:translateY(-10px);
+}
+
+}
+
+
+.card{
+    transition:0.3s;
+}
+
+
+.card:hover{
+    transform:translateY(-10px) scale(1.03);
+}
