@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>RBLX Forge - Tools</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+<h2>🔥 RBLX Forge</h2>
+
+<div>
+<a href="index.html">Home</a>
+<a href="tools.html">Tools</a>
+<a href="builder.html">AI Builder</a>
+<a href="tips.html">Tips</a>
+<a href="about.html">About</a>
+</div>
+
+</nav>
+
+
+
+<section class="hero">
+
+<h1>🛠️ Roblox Tools</h1>
+
+<p>
+Powerful tools for Roblox creators.
+</p>
+
+</section>
+
+
+
+<section class="cards">
+
+
+<div class="card">
+
+<h2>🎮 Username Generator</h2>
+
+<p>
+Create unique Roblox usernames.
+</p>
+
+<button onclick="generateUsername()">
+Generate
+</button>
+
+<p id="username">
+-
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>💡 Game Idea Generator</h2>
+
+<p>
+Get new Roblox game concepts.
+</p>
+
+<button onclick="gameIdea()">
+Generate
+</button>
+
+<p id="idea">
+-
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>🏆 Challenge Generator</h2>
+
+<p>
+Create fun Roblox challenges.
+</p>
+
+<button onclick="challenge()">
+Generate
+</button>
+
+<p id="challenge">
+-
+</p>
+
+</div>
+
+
+
+</section>
+
+
+
+<footer>
+
+<p>
+🔥 RBLX Forge - Roblox Creator Toolkit
+</p>
+
+</footer>
+
+
+
+<script>
+
+
+function generateUsername(){
+
+let names=[
+"Shadow",
+"Nova",
+"Cyber",
+"Void",
+"Legend",
+"Pixel"
+];
+
+
+let end=[
+"YT",
+"Pro",
+"X",
+"King",
+"Gaming"
+];
+
+
+document.getElementById("username").innerHTML =
+names[Math.floor(Math.random()*names.length)]
++
+end[Math.floor(Math.random()*end.length)]
++
+Math.floor(Math.random()*999);
+
+
+}
+
+
+
+function gameIdea(){
+
+let ideas=[
+"Pet Simulator",
+"Horror Escape",
+"Anime Battle Arena",
+"Speed Obby",
+"Tycoon Empire"
+];
+
+
+document.getElementById("idea").innerHTML =
+ideas[Math.floor(Math.random()*ideas.length)];
+
+}
+
+
+
+function challenge(){
+
+let challenges=[
+"Win without jumping",
+"Make a new avatar",
+"Beat a hard obby",
+"Try a new Roblox game",
+"Play with friends"
+];
+
+
+document.getElementById("challenge").innerHTML =
+challenges[Math.floor(Math.random()*challenges.length)];
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
