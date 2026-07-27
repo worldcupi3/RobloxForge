@@ -1,0 +1,192 @@
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+}
+
+
+/* Animated background */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle,#00d9ff55 2px,transparent 3px);
+    background-size:80px 80px;
+    animation:stars 20s linear infinite;
+    z-index:-1;
+}
+
+
+@keyframes stars{
+    from{
+        background-position:0 0;
+    }
+
+    to{
+        background-position:400px 400px;
+    }
+}
+
+
+/* Navigation */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+    background:#111827dd;
+    backdrop-filter:blur(10px);
+}
+
+
+nav h2{
+    color:#00d9ff;
+    text-shadow:0 0 15px #00d9ff;
+}
+
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:10px;
+    transition:.3s;
+}
+
+
+nav a:hover{
+    color:#00d9ff;
+}
+
+
+/* Hero */
+
+.hero{
+    text-align:center;
+    padding:100px 20px;
+}
+
+
+.hero h1{
+    font-size:60px;
+    color:#00d9ff;
+    text-shadow:0 0 25px #00d9ff;
+}
+
+
+.hero h2{
+    font-size:30px;
+}
+
+
+.hero p{
+    font-size:20px;
+    color:#ccc;
+}
+
+
+.button{
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 30px;
+    background:#00d9ff;
+    color:white;
+    text-decoration:none;
+    border-radius:15px;
+    font-size:20px;
+    transition:.3s;
+}
+
+
+.button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 25px #00d9ff;
+}
+
+
+/* Cards */
+
+.cards{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+}
+
+
+.card{
+
+    width:300px;
+    padding:30px;
+
+    background:#1f2937cc;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:0 0 25px #000;
+
+    transition:.3s;
+
+}
+
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 0 30px #00d9ff;
+
+}
+
+
+.card h2{
+    color:#00d9ff;
+}
+
+
+
+/* Footer */
+
+footer{
+
+    margin-top:80px;
+
+    padding:30px;
+
+    text-align:center;
+
+    color:#aaa;
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:700px){
+
+nav{
+
+    flex-direction:column;
+
+}
+
+.hero h1{
+
+    font-size:40px;
+
+}
+
+}
