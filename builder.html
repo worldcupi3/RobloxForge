@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>RBLX Forge - AI Builder</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<nav>
+
+<h2>🔥 RBLX Forge</h2>
+
+<div>
+<a href="index.html">Home</a>
+<a href="tools.html">Tools</a>
+<a href="builder.html">AI Builder</a>
+<a href="tips.html">Tips</a>
+<a href="about.html">About</a>
+</div>
+
+</nav>
+
+
+<section class="hero">
+
+<h1>🤖 AI Roblox Builder</h1>
+
+<p>
+Generate Roblox game concepts instantly.
+</p>
+
+</section>
+
+
+
+<section class="cards">
+
+
+<div class="card">
+
+<h2>🏗️ Game Generator</h2>
+
+<p>
+Choose a genre:
+</p>
+
+
+<select id="genre">
+
+<option>Simulator</option>
+<option>Horror</option>
+<option>Fighting</option>
+<option>Obby</option>
+<option>Tycoon</option>
+<option>Racing</option>
+
+</select>
+
+
+<br><br>
+
+
+<button onclick="generateGame()">
+Generate 🚀
+</button>
+
+
+<p id="result">
+-
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+<footer>
+
+<p>
+🔥 RBLX Forge AI Builder
+</p>
+
+</footer>
+
+
+
+<script>
+
+function generateGame(){
+
+let genre =
+document.getElementById("genre").value;
+
+
+let ideas = {
+
+Simulator:
+"Pet Evolution Simulator with trading and upgrades 🐶",
+
+Horror:
+"Dark Forest Survival Horror with mystery quests 🌲",
+
+Fighting:
+"Element Battle Arena with special abilities ⚔️",
+
+Obby:
+"Impossible Tower Obby with checkpoints 🏃",
+
+Tycoon:
+"Mega City Builder Tycoon with expansions 🏙️",
+
+Racing:
+"Extreme Vehicle Racing with tournaments 🏎️"
+
+};
+
+
+document.getElementById("result").innerHTML =
+ideas[genre];
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
