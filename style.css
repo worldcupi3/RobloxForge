@@ -190,3 +190,80 @@ nav{
 }
 
 }
+@media(max-width:700px){
+
+nav{
+    flex-direction:column;
+}
+
+.hero h1{
+    font-size:40px;
+}
+
+}
+
+
+/* V3 Extra Animations */
+
+.card{
+    animation: fadeUp 0.8s ease;
+}
+
+
+@keyframes fadeUp{
+
+from{
+    opacity:0;
+    transform:translateY(40px);
+}
+
+to{
+    opacity:1;
+    transform:translateY(0);
+}
+
+}
+
+
+.result{
+
+background:#0b1220;
+padding:15px;
+border-radius:15px;
+margin-top:20px;
+min-height:40px;
+
+box-shadow:0 0 15px #00d9ff55;
+
+}
+
+
+button{
+
+background:#00d9ff;
+border:none;
+padding:12px 25px;
+border-radius:12px;
+color:white;
+cursor:pointer;
+transition:.3s;
+
+}
+
+
+button:hover{
+
+transform:scale(1.08);
+box-shadow:0 0 20px #00d9ff;
+
+}
+
+
+select{
+
+padding:10px;
+border-radius:10px;
+background:#111827;
+color:white;
+
+}
