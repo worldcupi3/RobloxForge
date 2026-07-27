@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Roblox Generator</title>
+
+<style>
+body {
+    background: #111827;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.box {
+    background: #1f2937;
+    padding: 30px;
+    border-radius: 15px;
+    width: 420px;
+    text-align: center;
+}
+
+h1 {
+    color: #00d4ff;
+}
+
+button {
+    background: #00d4ff;
+    border: none;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    margin: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #0099cc;
+}
+
+.output {
+    background: #111827;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 15px;
+    word-break: break-all;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>🎮 Roblox Generator</h1>
+
+<button onclick="generateUsername()">Generate Username</button>
+<button onclick="generatePassword()">Generate Password</button>
+
+<div class="output">
+<b>Username:</b>
+<p id="username">-</p>
+</div>
+
+<div class="output">
+<b>Password:</b>
+<p id="password">-</p>
+</div>
+
+</div>
+
+
+<script>
+
+const firstWords = [
+"Shadow","Void","Nova","Dark",
+"Ghost","Apex","Iron","Pixel",
+"Hyper","Night","Elite"
+];
+
+const secondWords = [
+"Wolf","Titan","Storm",
+"Hunter","Phantom","Dragon",
+"King","Raptor","Blaze","Strike"
+];
+
+
+function generateUsername(){
+
+let name =
+firstWords[Math.floor(Math.random()*firstWords.length)] +
+secondWords[Math.floor(Math.random()*secondWords.length)] +
+Math.floor(Math.random()*9000+1000);
+
+document.getElementById("username").innerText = name;
+
+}
+
+
+function generatePassword(){
+
+const chars =
+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+
+let password = "";
+
+for(let i = 0; i < 16; i++){
+password += chars[Math.floor(Math.random()*chars.length)];
+}
+
+document.getElementById("password").innerText = password;
+
+}
+
+</script>
+
+</body>
+</html>
