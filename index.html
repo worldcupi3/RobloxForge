@@ -1,55 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Roblox Generator</title>
+<title>RBLX Forge - Roblox Tools</title>
 
 <style>
-body {
-    background: #111827;
-    color: white;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+body{
+    margin:0;
+    font-family:Arial;
+    background:#0b1020;
+    color:white;
+    text-align:center;
 }
 
-.box {
-    background: #1f2937;
-    padding: 30px;
-    border-radius: 15px;
-    width: 420px;
-    text-align: center;
+header{
+    padding:30px;
+    background:#111827;
 }
 
-h1 {
-    color: #00d4ff;
+h1{
+    font-size:40px;
+    color:#00d9ff;
 }
 
-button {
-    background: #00d4ff;
-    border: none;
-    color: white;
-    padding: 12px 18px;
-    border-radius: 8px;
-    margin: 8px;
-    cursor: pointer;
-    font-size: 16px;
+.card{
+    background:#1f2937;
+    margin:20px auto;
+    padding:25px;
+    border-radius:20px;
+    width:350px;
+    box-shadow:0 0 20px #000;
 }
 
-button:hover {
-    background: #0099cc;
+button{
+    background:#00d9ff;
+    color:white;
+    border:0;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
 }
 
-.output {
-    background: #111827;
-    padding: 12px;
-    border-radius: 8px;
-    margin-top: 15px;
-    word-break: break-all;
+button:hover{
+    transform:scale(1.05);
+}
+
+.result{
+    margin-top:15px;
+    background:#111827;
+    padding:10px;
+    border-radius:10px;
+    word-break:break-all;
+}
+
+footer{
+    margin-top:40px;
+    padding:20px;
+    color:#aaa;
 }
 </style>
 
@@ -57,65 +64,110 @@ button:hover {
 
 <body>
 
-<div class="box">
+<header>
+<h1>🔥 RBLX Forge 🔥</h1>
+<p>The ultimate Roblox creator toolkit</p>
+</header>
 
-<h1>🎮 Roblox Generator</h1>
 
-<button onclick="generateUsername()">Generate Username</button>
-<button onclick="generatePassword()">Generate Password</button>
+<div class="card">
 
-<div class="output">
-<b>Username:</b>
-<p id="username">-</p>
+<h2>🎮 Username Generator</h2>
+
+<button onclick="generateName()">Generate</button>
+
+<div class="result" id="name">
+-
 </div>
 
-<div class="output">
-<b>Password:</b>
-<p id="password">-</p>
+</div>
+
+
+<div class="card">
+
+<h2>🔐 Password Generator</h2>
+
+<button onclick="generatePass()">Generate</button>
+
+<div class="result" id="pass">
+-
 </div>
 
 </div>
+
+
+<div class="card">
+
+<h2>💡 Game Idea Generator</h2>
+
+<button onclick="idea()">Generate Idea</button>
+
+<div class="result" id="game">
+-
+</div>
+
+</div>
+
+
+<footer>
+Made by a Roblox creator ❤️
+</footer>
 
 
 <script>
 
-const firstWords = [
-"Shadow","Void","Nova","Dark",
-"Ghost","Apex","Iron","Pixel",
-"Hyper","Night","Elite"
+let names=[
+"Shadow","Nova","Void",
+"Pixel","Cyber","Apex",
+"Storm","Legend","Ghost"
 ];
 
-const secondWords = [
-"Wolf","Titan","Storm",
-"Hunter","Phantom","Dragon",
-"King","Raptor","Blaze","Strike"
+let endings=[
+"Wolf","Titan","Dragon",
+"Raptor","King","Blade"
 ];
 
 
-function generateUsername(){
+function generateName(){
 
-let name =
-firstWords[Math.floor(Math.random()*firstWords.length)] +
-secondWords[Math.floor(Math.random()*secondWords.length)] +
-Math.floor(Math.random()*9000+1000);
+let x=
+names[Math.floor(Math.random()*names.length)] +
+endings[Math.floor(Math.random()*endings.length)] +
+Math.floor(Math.random()*9999);
 
-document.getElementById("username").innerText = name;
+document.getElementById("name").innerHTML=x;
 
 }
 
 
-function generatePassword(){
+function generatePass(){
 
-const chars =
-"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+let chars=
+"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%";
 
-let password = "";
+let p="";
 
-for(let i = 0; i < 16; i++){
-password += chars[Math.floor(Math.random()*chars.length)];
+for(let i=0;i<16;i++){
+p+=chars[Math.floor(Math.random()*chars.length)];
 }
 
-document.getElementById("password").innerText = password;
+document.getElementById("pass").innerHTML=p;
+
+}
+
+
+function idea(){
+
+let ideas=[
+"Escape The Haunted Roblox City",
+"Build Your Own Mega Tycoon",
+"Ultimate Parkour Challenge",
+"Battle Royale Arena",
+"Pet Collection Simulator"
+];
+
+document.getElementById("game").innerHTML=
+ideas[Math.floor(Math.random()*ideas.length)];
 
 }
 
