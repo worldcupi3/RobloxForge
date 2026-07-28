@@ -14,43 +14,30 @@
 
 
 <nav>
+<h2>🔥 RBLX Forge</h2>
 
-<h2 class="logo">🔥 RBLX <span>Forge</span></h2>
-
-<div>
 <a href="index.html">Home</a>
 <a href="tools.html">Tools</a>
 <a href="builder.html">AI Builder</a>
 <a href="tips.html">Tips</a>
 <a href="about.html">About</a>
-</div>
 
 </nav>
 
 
 
-<section class="hero">
-
 <h1>🤖 RBLX Forge AI Builder</h1>
 
-<p>
-Create Roblox game ideas with AI.
-</p>
-
-</section>
+<p>Create Roblox game ideas with AI.</p>
 
 
-
-<section class="cards">
-
-
-<div class="card">
 
 <h2>🎮 AI Game Generator</h2>
 
+
 <input 
 id="gameInput" 
-placeholder="Example: Make a Roblox football game">
+placeholder="Example: Make a touch football game">
 
 
 <br><br>
@@ -61,43 +48,39 @@ Generate 🚀
 </button>
 
 
+<h3>AI Result:</h3>
+
 <p id="result">
 Your AI idea will appear here...
 </p>
 
 
-</div>
+
+<hr>
 
 
-
-<div class="card">
 
 <h2>💡 Quick Ideas</h2>
 
-<p>
-Ask AI for:
-</p>
-
 <ul>
+
 <li>Game ideas</li>
+
 <li>Maps</li>
+
 <li>Stories</li>
+
 <li>Gamepasses</li>
+
 <li>Features</li>
+
 </ul>
-
-</div>
-
-
-</section>
 
 
 
 <footer>
 
-<p>
 🔥 RBLX Forge AI
-</p>
 
 </footer>
 
@@ -106,18 +89,18 @@ Ask AI for:
 
 <script>
 
-
 async function generateGame(){
 
 
 let prompt = document.getElementById("gameInput").value;
+
 
 let result = document.getElementById("result");
 
 
 if(prompt === ""){
 
-result.innerHTML = "❌ Type a game idea first!";
+result.innerHTML = "❌ Type an idea first!";
 
 return;
 
@@ -158,11 +141,12 @@ prompt: prompt
 let data = await response.json();
 
 
+
 result.innerHTML = data.answer;
 
 
-}
 
+}
 
 
 </script>
