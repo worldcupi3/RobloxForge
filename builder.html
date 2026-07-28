@@ -9,11 +9,13 @@
 
 </head>
 
+
 <body>
+
 
 <nav>
 
-<h2>🔥 RBLX Forge</h2>
+<h2 class="logo">🔥 RBLX <span>Forge</span></h2>
 
 <div>
 <a href="index.html">Home</a>
@@ -26,12 +28,13 @@
 </nav>
 
 
+
 <section class="hero">
 
-<h1>🤖 AI Roblox Builder</h1>
+<h1>🤖 RBLX Forge AI Builder</h1>
 
 <p>
-Generate Roblox game concepts instantly.
+Create Roblox game ideas with AI.
 </p>
 
 </section>
@@ -43,23 +46,11 @@ Generate Roblox game concepts instantly.
 
 <div class="card">
 
-<h2>🏗️ Game Generator</h2>
+<h2>🎮 AI Game Generator</h2>
 
-<p>
-Choose a genre:
-</p>
-
-
-<select id="genre">
-
-<option>Simulator</option>
-<option>Horror</option>
-<option>Fighting</option>
-<option>Obby</option>
-<option>Tycoon</option>
-<option>Racing</option>
-
-</select>
+<input 
+id="gameInput" 
+placeholder="Example: Make a Roblox football game">
 
 
 <br><br>
@@ -68,15 +59,32 @@ Choose a genre:
 <button onclick="generateGame()">
 Generate 🚀
 </button>
-<div class="result" id="result">
--
+
+
+<p id="result">
+Your AI idea will appear here...
+</p>
+
+
 </div>
 
-<button onclick="copyResult()">
-📋 Copy
-</button>
 
 
+<div class="card">
+
+<h2>💡 Quick Ideas</h2>
+
+<p>
+Ask AI for:
+</p>
+
+<ul>
+<li>Game ideas</li>
+<li>Maps</li>
+<li>Stories</li>
+<li>Gamepasses</li>
+<li>Features</li>
+</ul>
 
 </div>
 
@@ -88,92 +96,77 @@ Generate 🚀
 <footer>
 
 <p>
-🔥 RBLX Forge AI Builder
+🔥 RBLX Forge AI
 </p>
 
 </footer>
 
 
 
+
 <script>
 
-function generateGame(){
 
-let genre =
-document.getElementById("genre").value;
-
-
-let ideas = {
-
-Simulator:
-"Pet Evolution Simulator with trading and upgrades 🐶",
-
-Horror:
-"Dark Forest Survival Horror with mystery quests 🌲",
-
-Fighting:
-"Element Battle Arena with special abilities ⚔️",
-
-Obby:
-"Impossible Tower Obby with checkpoints 🏃",
-
-Tycoon:
-"Mega City Builder Tycoon with expansions 🏙️",
-
-Racing:
-"Extreme Vehicle Racing with tournaments 🏎️"
-
-};
-
-
-document.getElementById("result").innerHTML =
-ideas[genre]
-
-}
-
-
-function copyResult(){
-
-let text = document.getElementById("result").innerText;
-
-navigator.clipboard.writeText(text);
-
-alert("Copied! 🔥");
-
-}
-
-</script>
 async function generateGame(){
+
 
 let prompt = document.getElementById("gameInput").value;
 
 let result = document.getElementById("result");
 
+
+if(prompt === ""){
+
+result.innerHTML = "❌ Type a game idea first!";
+
+return;
+
+}
+
+
+
 result.innerHTML = "🤖 AI is thinking...";
 
+
+
 let response = await fetch(
+
 https://blue-star-5ffe.stavropolo444.workers.dev/
+
 {
+
 method:"POST",
+
 headers:{
+
 "Content-Type":"application/json"
+
 },
+
 body:JSON.stringify({
+
 prompt: prompt
+
 })
+
 }
+
 );
+
+
 
 let data = await response.json();
 
+
 result.innerHTML = data.answer;
 
-}      
 
-</body>
+}
 
-</html>
+
+
 </script>
+
 
 
 </body>
