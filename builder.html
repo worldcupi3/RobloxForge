@@ -3,7 +3,11 @@
 
 <head>
 
-<title>RBLX Forge - AI Builder</title>
+<meta charset="UTF-8">
+
+<meta name="description" content="RBLX Forge V3 AI Builder - Roblox creator assistant">
+
+<title>RBLX Forge V3 - AI Builder</title>
 
 <link rel="stylesheet" href="css/style.css">
 
@@ -14,143 +18,143 @@
 
 
 <nav>
+
 <h2>🔥 RBLX Forge</h2>
 
+<div>
 <a href="index.html">Home</a>
 <a href="tools.html">Tools</a>
 <a href="builder.html">AI Builder</a>
 <a href="tips.html">Tips</a>
 <a href="about.html">About</a>
+</div>
 
 </nav>
 
 
 
-<h1>🤖 RBLX Forge AI Builder</h1>
+<section class="hero">
 
-<p>Create Roblox game ideas with AI.</p>
+<h1>🤖 AI Builder</h1>
+
+<h2>Create Roblox Ideas With AI</h2>
+
+<p>
+Generate game concepts, scripts, maps, and mechanics.
+</p>
 
 
 
-<h2>🎮 AI Game Generator</h2>
+<div class="card">
+
+<h2>🎮 Describe Your Game</h2>
 
 
-<input 
-id="gameInput" 
-placeholder="Example: Make a touch football game">
+<textarea id="prompt"
+placeholder="Example: Create a Roblox football game with ranks, tournaments, and abilities..."
+style="
+width:100%;
+height:130px;
+border-radius:15px;
+padding:15px;
+font-size:16px;
+">
+</textarea>
 
 
 <br><br>
 
 
-<button onclick="generateGame()">
-Generate 🚀
+<button onclick="generateAI()">
+🚀 Generate
 </button>
 
 
-<h3>AI Result:</h3>
-
-<p id="result">
-Your AI idea will appear here...
-</p>
+<div class="result" id="result">
+Your AI creation will appear here...
+</div>
 
 
-
-<hr>
-
+</div>
 
 
-<h2>💡 Quick Ideas</h2>
-
-<ul>
-
-<li>Game ideas</li>
-
-<li>Maps</li>
-
-<li>Stories</li>
-
-<li>Gamepasses</li>
-
-<li>Features</li>
-
-</ul>
+</section>
 
 
 
 <footer>
 
-🔥 RBLX Forge AI
+<p>
+RBLX Forge is a fan-made Roblox creator toolkit.
+</p>
 
 </footer>
 
 
 
-
 <script>
 
-async function generateGame(){
+async function generateAI(){
 
 
-let prompt = document.getElementById("gameInput").value;
-
+let prompt = document.getElementById("prompt").value;
 
 let result = document.getElementById("result");
 
 
-if(prompt === ""){
+if(prompt.trim() === ""){
 
-result.innerHTML = "❌ Type an idea first!";
+result.innerHTML = "⚠️ Enter a Roblox idea first!";
 
 return;
 
 }
 
 
+result.innerHTML = "🤖 RBLX Forge AI is creating...";
 
-result.innerHTML = "🤖 AI is thinking...";
 
+try{
 
 
 let response = await fetch(
-
-https://blue-star-5ffe.stavropolo444.workers.dev/
-
+"YOUR_WORKER_URL",
 {
 
 method:"POST",
 
 headers:{
-
 "Content-Type":"application/json"
-
 },
 
 body:JSON.stringify({
-
-prompt: prompt
-
+prompt:prompt
 })
 
-}
-
-);
-
+});
 
 
 let data = await response.json();
 
 
-
 result.innerHTML = data.answer;
-
 
 
 }
 
+catch(error){
+
+console.log(error);
+
+result.innerHTML =
+"❌ Failed to connect to AI Worker";
+
+}
+
+
+}
 
 </script>
-
 
 
 </body>
